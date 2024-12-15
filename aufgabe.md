@@ -18,16 +18,6 @@ Wir bauen uns ein Programm welches uns die neusten News anhand von RSS-Feeds anz
 3. Installiere TypeScript mit `npm install typescript --save-dev`
 4. Initialisiere TypeScript mit `npx tsc --init` und passe die `tsconfig.json` an (zB. `outDir` auf `./dist` und `rootDir` auf `./src`)
 
-## Packages
-
-Um Rss Feeds zu parsen und Musik abzuspielen benötigen wir zwei Packages:
-
-- [rss-parser - npm](https://www.npmjs.com/package/rss-parser)
-- [play-sound - npm](https://www.npmjs.com/package/play-sound)
-
-::: info
-Hier kann man gut nach Radio-Urls suchen: [Radio stream URL search engine](https://streamurl.link/)
-und: [Radio stream URL search engine 2](https://www.radio-browser.info/)
 
 ## Anforderungen
 ### Aufgabe 1: Willkommen
@@ -88,12 +78,14 @@ Frage nun den Benutzer ob er mehr New lesen möchte.
 Um Interaktiviät in der Konsole zu haben, können wir das Package `inquirer` verwenden:
 - [SBoudrias/Inquirer.js: A collection of common interactive command line user interfaces.](https://github.com/SBoudrias/Inquirer.js?tab=readme-ov-file)
 
-1. Zeige mit inquirer eine Liste an (`{type: 'list'}`) mit den Werten **News Anzeigen** und **Beenden**
+1. In TerminalHome soll eine Methode **askForAction** implementiert werden. Zeige mit inquirer eine Liste an, mit den Werten **News Anzeigen** und **Beenden**.
 2. *Beenden* soll das Programm einfach beenden ;)
 3. *News Anzeigen* soll ein neues Prompt anzeigen mit der Frage "Welche News (1...5)?" und als Wert eine Zahl annehmen.
 4. Rufe die Funktion **getNews(n)** vom NewsFeed auf (diese Funktion musst du noch implementieren)
 5. Das Ergebnis von *getNews* soll mit dem TerminalHome ausgegeben werden. Lege dafür eine Methode **printNewsArticle(item)** an, die das Formatieren und "printen" übernimmt.
-56. Wenn der Benutzer eine ungültige Zahl angibt soll ein Fehler erscheinen, ansonsten Zeige die Komplette News.  
+6. Wenn der Benutzer eine ungültige Zahl angibt soll ein Fehler erscheinen, ansonsten Zeige die Komplette News.  
+**Tip: Die Schritte können entweder ganz in der TerminalHome implementiert werden oder teilweise in der index.ts**
+
 Z.B:
 ```
 ? Was willst du nun tun?
@@ -147,3 +139,7 @@ process.on('SIGINT', () => {
 3. In der Abfrage von Aufgabe 3 "Was willst du tun?" soll auch der Eintrag "Radio hören" auftauchen.
 3. Starte dann den Radio-Stream
 
+::: info
+Hier kann man gut nach Radio-Urls suchen: [Radio stream URL search engine](https://streamurl.link/)
+und: [Radio stream URL search engine 2](https://www.radio-browser.info/)
+:::
