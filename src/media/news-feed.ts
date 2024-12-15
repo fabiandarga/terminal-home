@@ -8,7 +8,7 @@ type CustomFeed = {
   description: string;
 };
 
-type CustomItem = {
+export type CustomItem = {
   title: string;
   link: string;
   pubDate: string;
@@ -51,5 +51,18 @@ export default class NewsFeed {
         titles.push(item.title);
     });
     return titles;
+  }
+
+  getNews(index: number): CustomItem {
+    if (!this.feed) {
+      console.error('Feed not initialized. Please restart!');
+      throw new Error('Feed not initialized');
+    }
+    const news = this.feed.items[index];
+    if (!news) {
+      console.error(`No news available at index ${index}.`);
+      throw new Error(`No news available at index ${index}`);
+    }
+    return news;
   }
 }

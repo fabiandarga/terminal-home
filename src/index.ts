@@ -10,6 +10,22 @@ async function main() {
   const topTitles = newsFeed.getTopTitles(5);
   terminal.printList(topTitles);
 
+  const answer = await terminal.askForAction([
+    {
+      value: 'SHOW_NEWS',
+      name: 'Zeige News Artikel'
+    },
+    {
+      value: 'QUIT',
+      name: 'Beenden'
+    },
+  ]);
+
+  if (answer === 'SHOW_NEWS') {
+    terminal.printNewsArticle(newsFeed.getNews(1));
+  } else if (answer === 'QUIT') {
+    terminal.print('Auf Wiedersehen!');
+  }
   return;
 }
 

@@ -1,11 +1,10 @@
-type Content = string | Array<string>;
+import { CustomItem } from "../media/news-feed";
+
+type Content = Array<string>;
 export default class Terminal {
-  print(content: Content) {
-    if (Array.isArray(content)) {
-      content.forEach((line) => console.log(line));
-    } else {
-      console.log(content);
-    }
+  // Auf Rest-Parameter geändert, weil es noch schöner ist.
+  print(...content: Content) {
+    content.forEach((line) => console.log(line));
   }
 
   printLine() {
