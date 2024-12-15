@@ -11,4 +11,10 @@ export default class Terminal {
   printLine() {
     console.log('-'.repeat(20));
   }
+
+  printList(items: string[]) {
+    items.forEach((item, index) => {
+      this.print(`${index + 1}. ${item}`);
+    });
+  }
 }
