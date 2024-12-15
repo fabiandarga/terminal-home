@@ -14,8 +14,10 @@ class DataStore<T extends Media> {
       const data = await readFile(this.filePath, 'utf-8');
       this.items = JSON.parse(data);
     } catch (error) {
-      if (error instanceof Error && error.name !== 'ENOENT') {
-        throw error;
+      if (error instanceof Error) {
+        console.error(
+          `Failed to load data from ${this.filePath}: ${error.message}`
+        );
       }
     }
   }
